@@ -1,0 +1,24 @@
+# Backend
+backend/target/
+backend/.mvn/
+backend/*.iml
+backend/.idea/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# Credenciales — NUNCA subir al repo
+backend/src/main/resources/application.properties
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/

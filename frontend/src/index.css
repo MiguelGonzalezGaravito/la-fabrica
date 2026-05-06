@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Pastel — azul cielo y rosa suave */
+  --color-ink:     #1E3260;
+  --color-stone:   #6878A8;
+  --color-fog:     #A8B4D0;
+  --color-line:    #D0D8EE;
+  --color-surface: #F2F5FC;
+  --color-cream:   #EEF2FA;
+  --color-sand:    #F5EEF8;
+  --color-white:   #FFFFFF;
+  --color-gold:    #D85880;
+  --color-success: #16A34A;
+  --color-success-light: #F0FDF4;
+  --color-danger:  #DC2626;
+  --color-danger-light: #FEF2F2;
+  --color-info:    #2563EB;
+  --color-info-light: #EFF6FF;
+
+  /* Tipografía */
+  --font-family-display: "Cormorant Garamond", serif;
+  --font-family-sans:    "DM Sans", sans-serif;
+}
+
+:root {
+  --ink:     #1E3260;
+  --stone:   #6878A8;
+  --fog:     #A8B4D0;
+  --line:    #D0D8EE;
+  --surface: #F2F5FC;
+  --gold:    #D85880;
+  --success: #16A34A;
+  --danger:  #DC2626;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: #1E3260;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+}
+
+/* Contenedor con margen consistente en todas las páginas */
+.page-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (min-width: 768px) {
+  .page-container { padding-left: 3.5rem; padding-right: 3.5rem; }
+}
+@media (min-width: 1280px) {
+  .page-container { padding-left: 4rem; padding-right: 4rem; }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F2F5FC; }
+::-webkit-scrollbar-thumb { background: #D0D8EE; }
