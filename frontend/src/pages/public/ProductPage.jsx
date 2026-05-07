@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { ShoppingBag, ArrowLeft, Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import toast from 'react-hot-toast'
 import PublicLayout from '../../components/common/PublicLayout'
@@ -7,6 +7,7 @@ import Spinner from '../../components/common/Spinner'
 import { getProduct } from '../../api/products.api'
 import { useAuthStore } from '../../store/authStore'
 import { useCartStore } from '../../store/cartStore'
+import { useAuthModalStore } from '../../store/authModalStore'
 import { formatPrice } from '../../utils/formatters'
 
 export default function ProductPage() {
@@ -17,9 +18,9 @@ export default function ProductPage() {
   const [selectedVariant, setSelectedVariant] = useState(null)
   const [quantity,        setQuantity]        = useState(1)
   const [adding,          setAdding]          = useState(false)
-  const navigate = useNavigate()
   const { user } = useAuthStore()
   const { addItem } = useCartStore()
+  const { openLogin } = useAuthModalStore()
   const isWholesale = user?.businessType === 'WHOLESALE'
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function ProductPage() {
   }, [id])
 
   const handleAddToCart = async () => {
-    if (!user) { navigate('/login'); return }
+    if (!user) { openLogin(); return }
     if (!selectedVariant) { toast.error('Selecciona una variante'); return }
     if (selectedVariant.stock < quantity) { toast.error('Stock insuficiente'); return }
     setAdding(true)
