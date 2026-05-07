@@ -17,8 +17,8 @@ const SLIDES = [
 
 const CATS = [
   { label: 'Espadrilles', sub: 'Artesanales',       img: '/images/hero-1.png', accent: '#F5C0CE', href: '/catalogo?category=Espadrilles' },
-  { label: 'Sandalias',   sub: 'Para cada ocasión', img: '/images/hero-3.png', accent: '#B8CCEE', href: '/catalogo?category=Sandalias' },
-  { label: 'Plataformas', sub: 'Con altura',         img: '/images/hero-2.png', accent: '#D4C0E8', href: '/catalogo?category=Plataformas' },
+  { label: 'Sandalias',   sub: 'Para cada ocasión', img: '/images/hero-2.png', accent: '#B8CCEE', href: '/catalogo?category=Sandalias' },
+  { label: 'Plataformas', sub: 'Con altura',         img: '/images/hero-3.png', accent: '#D4C0E8', href: '/catalogo?category=Plataformas' },
 ]
 
 /* ─── Hero Slider ─── */
