@@ -134,12 +134,14 @@ public class OrderService {
         return toOrderResponse(orderRepository.findById(order.getId()).orElseThrow());
     }
 
+    @Transactional(readOnly = true)
     public List<OrderResponse> getUserOrders(String email) {
         User user = getUser(email);
         return orderRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
                 .stream().map(this::toOrderResponse).toList();
     }
 
+    @Transactional(readOnly = true)
     public OrderResponse getUserOrder(String email, Long orderId) {
         User user = getUser(email);
         Order order = orderRepository.findById(orderId)
@@ -187,6 +189,7 @@ public class OrderService {
 
     // ── Admin ───────────────────────────────────────────────────────────────
 
+    @Transactional(readOnly = true)
     public List<OrderResponse> getAllOrders(OrderStatus status, String promoCode) {
         if (promoCode != null && !promoCode.isBlank()) {
             return orderRepository.findByPromoCodeIgnoreCase(promoCode.trim())
@@ -198,6 +201,7 @@ public class OrderService {
         return orderRepository.findAll().stream().map(this::toOrderResponse).toList();
     }
 
+    @Transactional(readOnly = true)
     public OrderResponse getAdminOrder(Long orderId) {
         return toOrderResponse(orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Pedido no encontrado")));
