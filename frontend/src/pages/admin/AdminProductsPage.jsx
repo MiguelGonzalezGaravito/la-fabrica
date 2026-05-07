@@ -18,7 +18,7 @@ const schema = z.object({
   featured: z.boolean().optional(),
 })
 
-const CATEGORIES = ['Sandalias', 'Espadrilles', 'Plataformas', 'Flats', 'Botas', 'Tacones', 'Otro']
+const CATEGORIES = ['Sandalias', 'Espadrilles', 'Plataformas', 'Otro']
 
 const iField = {
   width: '100%', borderBottom: '1px solid #E5E7EB', borderTop: 'none', borderLeft: 'none', borderRight: 'none',

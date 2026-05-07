@@ -5,7 +5,7 @@ import ProductCard from '../../components/product/ProductCard'
 import Spinner from '../../components/common/Spinner'
 import { getProducts } from '../../api/products.api'
 
-const CATEGORIES = ['Sandalias', 'Espadrilles', 'Plataformas', 'Flats', 'Botas']
+const CATEGORIES = ['Sandalias', 'Espadrilles', 'Plataformas']
 
 export default function CatalogPage() {
   const [products,    setProducts]    = useState([])
