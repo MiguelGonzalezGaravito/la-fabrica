@@ -38,7 +38,7 @@ export default function Footer() {
                 <p className="text-[10px] tracking-[3px] uppercase text-white/25 mt-1">Calzado · Colombia</p>
               </div>
               <p className="text-[14px] leading-relaxed text-white/45 mb-7">
-                Calzado femenino artesanal.<br />Directo de fábrica · Medellín
+                Calzado femenino artesanal.<br />Directo de fábrica · Bucaramanga
               </p>
               <div className="border border-white/10 px-4 py-3 inline-block">
                 <p className="text-[10px] tracking-[2px] uppercase text-white/25 mb-1.5">Pagos</p>
@@ -80,7 +80,7 @@ export default function Footer() {
 
           <div className="border-t border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-[12px] tracking-wide text-white/25">
-              © {new Date().getFullYear()} La Fábrica · Medellín, Colombia
+              © {new Date().getFullYear()} La Fábrica · Bucaramanga, Colombia
             </p>
             <div className="flex items-center gap-2">
               {['Nequi', 'Bancolombia', 'QR'].map(p => (
