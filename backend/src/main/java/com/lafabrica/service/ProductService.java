@@ -104,22 +104,26 @@ public class ProductService {
         return toProductResponse(productRepository.findById(id).orElseThrow());
     }
 
+    @Transactional(readOnly = true)
     public ProductResponse getProduct(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
         return toProductResponse(product);
     }
 
+    @Transactional(readOnly = true)
     public Page<ProductSummaryResponse> getProducts(String category, String brand, Pageable pageable) {
         return productRepository.findWithFilters(category, brand, pageable)
                 .map(this::toSummaryResponse);
     }
 
+    @Transactional(readOnly = true)
     public Page<ProductSummaryResponse> getAdminProducts(String category, String brand, Pageable pageable) {
         return productRepository.findAllWithFilters(category, brand, pageable)
                 .map(this::toSummaryResponse);
     }
 
+    @Transactional(readOnly = true)
     public List<ProductSummaryResponse> getFeaturedProducts() {
         return productRepository.findByActiveTrueAndFeaturedTrue()
                 .stream().map(this::toSummaryResponse).toList();
