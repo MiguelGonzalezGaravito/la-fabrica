@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { ShoppingBag, ArrowLeft, Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import toast from 'react-hot-toast'
 import PublicLayout from '../../components/common/PublicLayout'
@@ -17,6 +17,7 @@ export default function ProductPage() {
   const [selectedVariant, setSelectedVariant] = useState(null)
   const [quantity,        setQuantity]        = useState(1)
   const [adding,          setAdding]          = useState(false)
+  const navigate = useNavigate()
   const { user } = useAuthStore()
   const { addItem } = useCartStore()
   const isWholesale = user?.businessType === 'WHOLESALE'
@@ -28,7 +29,7 @@ export default function ProductPage() {
   }, [id])
 
   const handleAddToCart = async () => {
-    if (!user) { toast.error('Inicia sesión para comprar'); return }
+    if (!user) { navigate('/login'); return }
     if (!selectedVariant) { toast.error('Selecciona una variante'); return }
     if (selectedVariant.stock < quantity) { toast.error('Stock insuficiente'); return }
     setAdding(true)
